@@ -5,9 +5,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { BackendErrorMessagesModule } from '../shared/modules/backendErrorMessages/backendErrorMessages.module';
+import { PersistanceService } from '../shared/services/persistance.service';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthService } from './services/auth.service';
-import { RegisterEffect } from './store/actions/register.effect';
+import { RegisterEffect } from './store/effects/register.effect';
 import { authReducer } from './store/reducers';
 
 const routes: Routes = [{ path: 'register', component: RegisterComponent }];
@@ -23,6 +24,6 @@ const routes: Routes = [{ path: 'register', component: RegisterComponent }];
     BackendErrorMessagesModule,
   ],
   exports: [RouterModule],
-  providers: [AuthService],
+  providers: [AuthService, PersistanceService],
 })
 export class AuthModule {}
