@@ -9,6 +9,7 @@ import { PersistanceService } from '../shared/services/persistance.service';
 import { LoginComponent } from './components/register/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthService } from './services/auth.service';
+import { getCurrentUserEffect } from './store/effects/getCurrentUser.effect';
 import { LoginEffect } from './store/effects/login.effect';
 import { RegisterEffect } from './store/effects/register.effect';
 import { authReducer } from './store/reducers';
@@ -25,7 +26,11 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     StoreModule.forFeature('auth', authReducer),
-    EffectsModule.forFeature([RegisterEffect, LoginEffect]),
+    EffectsModule.forFeature([
+      RegisterEffect,
+      LoginEffect,
+      getCurrentUserEffect,
+    ]),
     BackendErrorMessagesModule,
   ],
   exports: [RouterModule],

@@ -10,6 +10,7 @@ import { environment } from '../environments/environment'; // Angular CLI enviro
 
 import { AppComponent } from './app.component';
 import { EffectsModule } from '@ngrx/effects';
+import { TopBarModule } from './shared/modules/topBar/topBar.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +26,7 @@ import { EffectsModule } from '@ngrx/effects';
     }),
     HttpClientModule,
     EffectsModule.forRoot([]),
+    TopBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
