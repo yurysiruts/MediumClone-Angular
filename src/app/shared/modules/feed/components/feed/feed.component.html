@@ -16,7 +16,7 @@
         <a [routerLink]="['/profiles', article.author.name]">
           {{ article.author.username }}
         </a>
-        <span class="date">{{ article.createdAt }}</span>
+        <span class="date">{{ article.createdAt | date }}</span>
       </div>
       <div class="pull-xs-right">===ADD to favourites===</div>
     </div>
@@ -26,5 +26,10 @@
       ===Here is list of TAGS===
     </a>
   </div>
-  ===Pagination===
+  <app-pagination
+    [total]="(feed$ | async)?.articlesCount"
+    [limit]="limit"
+    [url]="baseUrl"
+    [currentPage]="currentPage"
+  ></app-pagination>
 </div>
