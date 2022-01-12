@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 
 import { environment } from '../environments/environment'; // Angular CLI environment
 
@@ -22,7 +23,9 @@ import { FeedModule } from './shared/modules/feed/feed.module';
     BrowserModule,
     AuthModule,
     AppRoutingModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({
+      router: routerReducer,
+    }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
@@ -33,6 +36,7 @@ import { FeedModule } from './shared/modules/feed/feed.module';
     TopBarModule,
     GlobalFeedModule,
     FeedModule,
+    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [
     PersistanceService,

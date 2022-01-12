@@ -10,6 +10,7 @@ import {
 import { GetFeedResponseInterface } from '../../types/getFeedResponse.interface';
 import { environment } from 'src/environments/environment';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { parseUrl, stringify } from 'query-string';
 
 @Component({
   selector: 'app-feed',
@@ -37,7 +38,6 @@ export class feedComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initializeValues();
-    this.fetchDate();
     this.initializeListeners();
   }
 
@@ -57,12 +57,21 @@ export class feedComponent implements OnInit, OnDestroy {
     this.queryParamsSubscription = this.route.queryParams.subscribe(
       (params: Params) => {
         this.currentPage = Number(params.page || '1');
-        console.log(this.currentPage);
+        console.log('currentPage', this.currentPage);
+        this.fetchFeed();
       }
     );
   }
 
-  fetchDate(): void {
-    this.store.dispatch(getFeedAction({ url: this.apiUrlProps }));
+  fetchFeed(): void {
+    const offset = this.currentPage * this.limit - this.limit;
+    const parsedUrl = parseUrl(this.apiUrlProps);
+    const stringifiedParams = stringify({
+      limit: this.limit,
+      offset,
+      ...parsedUrl.query,
+    });
+    const apiUrlWithParams = `${parsedUrl.url}?${stringifiedParams}`;
+    this.store.dispatch(getFeedAction({ url: apiUrlWithParams }));
   }
 }
