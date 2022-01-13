@@ -16,6 +16,7 @@ import { PersistanceService } from './shared/services/persistance.service';
 import { AuthInterceptor } from './shared/services/authinterceptor.service';
 import { GlobalFeedModule } from './globalFeed/globalFeed.module';
 import { FeedModule } from './shared/modules/feed/feed.module';
+import { PopularTagsModule } from './shared/modules/popular-tags/popular-tags.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,6 +38,7 @@ import { FeedModule } from './shared/modules/feed/feed.module';
     GlobalFeedModule,
     FeedModule,
     StoreRouterConnectingModule.forRoot(),
+    PopularTagsModule,
   ],
   providers: [
     PersistanceService,

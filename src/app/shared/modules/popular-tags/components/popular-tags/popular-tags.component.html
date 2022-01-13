@@ -1,0 +1,8 @@
+<div class="sidebar">
+  <p>Popular Tags</p>
+  <div class="tag-list">
+    <a class="tag-default tag-pill" *ngFor="let tag of tags$ | async">
+      {{ tag }}
+    </a>
+  </div>
+</div>
