@@ -16,8 +16,6 @@ import { PopularTagsResponseInterface } from '../../store/types/popularTagsRespo
   styleUrls: ['./popular-tags.component.scss'],
 })
 export class PopularTagsComponent implements OnInit {
-  @Input('apiUrl') apiUrlProps: string;
-
   isLoading$: Observable<boolean>;
   error$: Observable<string | null>;
   tags$: Observable<PopularTagType[] | null>;
@@ -35,7 +33,7 @@ export class PopularTagsComponent implements OnInit {
     this.tags$ = this.store.pipe(select(isTagsSelector));
   }
 
-  fetchTags() {
+  fetchTags(): void {
     this.store.dispatch(getTagsAction());
   }
 }
