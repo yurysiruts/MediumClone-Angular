@@ -6,7 +6,12 @@
       </a>
     </li>
     <li class="nav-item">
-      <a [routerLink]="['/']" class="nav-link" routerLinkActive="active">
+      <a
+        [routerLink]="['/']"
+        class="nav-link"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         Global feed
       </a>
     </li>
@@ -15,8 +20,11 @@
         [routerLink]="['/tags', tagNameProps]"
         class="nav-link"
         routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true, __hack__: tagNameProps }"
       >
-        {{ tagNameProps }}
+        <i class="ion-pound">
+          {{ tagNameProps }}
+        </i>
       </a>
     </li>
   </ul>

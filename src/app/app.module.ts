@@ -17,6 +17,8 @@ import { AuthInterceptor } from './shared/services/authinterceptor.service';
 import { GlobalFeedModule } from './globalFeed/globalFeed.module';
 import { FeedModule } from './shared/modules/feed/feed.module';
 import { PopularTagsModule } from './shared/modules/popular-tags/popular-tags.module';
+import { YourFeedModule } from './yourFeed/yourFeed.module';
+import { TagFeedModule } from './tagFeed/tagFeed.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,6 +41,8 @@ import { PopularTagsModule } from './shared/modules/popular-tags/popular-tags.mo
     FeedModule,
     StoreRouterConnectingModule.forRoot(),
     PopularTagsModule,
+    YourFeedModule,
+    TagFeedModule,
   ],
   providers: [
     PersistanceService,

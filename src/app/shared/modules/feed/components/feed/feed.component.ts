@@ -1,4 +1,11 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { getFeedAction } from '../../store/actions/getFeed.action';
@@ -17,7 +24,7 @@ import { parseUrl, stringify } from 'query-string';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss'],
 })
-export class feedComponent implements OnInit, OnDestroy {
+export class feedComponent implements OnInit, OnDestroy, OnChanges {
   @Input('apiUrl') apiUrlProps: string;
 
   isLoading$: Observable<boolean>;
@@ -43,6 +50,16 @@ export class feedComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.queryParamsSubscription.unsubscribe();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    // If apiUrl changed
+    const isApiUrlChanged =
+      !changes.apiUrlProps.firstChange &&
+      changes.apiUrlProps.currentValue !== changes.apiUrlProps.previousValue;
+    if (isApiUrlChanged === true) {
+      this.fetchFeed();
+    }
   }
 
   initializeValues(): void {
