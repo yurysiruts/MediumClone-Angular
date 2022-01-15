@@ -19,6 +19,7 @@ import { FeedModule } from './shared/modules/feed/feed.module';
 import { PopularTagsModule } from './shared/modules/popular-tags/popular-tags.module';
 import { YourFeedModule } from './yourFeed/yourFeed.module';
 import { TagFeedModule } from './tagFeed/tagFeed.module';
+import { ArticleModule } from './article/article.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -43,6 +44,7 @@ import { TagFeedModule } from './tagFeed/tagFeed.module';
     PopularTagsModule,
     YourFeedModule,
     TagFeedModule,
+    ArticleModule,
   ],
   providers: [
     PersistanceService,
