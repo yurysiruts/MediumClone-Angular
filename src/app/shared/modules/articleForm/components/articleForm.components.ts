@@ -26,15 +26,9 @@ export class ArticleFormComponent implements OnInit {
 
   initializeForm(): void {
     this.form = new FormGroup({
-      title: new FormControl(
-        this.initialValuesProps.title,
-        Validators.required
-      ),
-      description: new FormControl(
-        this.initialValuesProps.description,
-        Validators.required
-      ),
-      body: new FormControl(this.initialValuesProps.body, Validators.required),
+      title: new FormControl(this.initialValuesProps.title),
+      description: new FormControl(this.initialValuesProps.description),
+      body: new FormControl(this.initialValuesProps.body),
       tagList: new FormControl(this.initialValuesProps.tagList.join(' ')),
     });
   }
