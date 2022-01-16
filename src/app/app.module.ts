@@ -20,6 +20,7 @@ import { PopularTagsModule } from './shared/modules/popular-tags/popular-tags.mo
 import { YourFeedModule } from './yourFeed/yourFeed.module';
 import { TagFeedModule } from './tagFeed/tagFeed.module';
 import { ArticleModule } from './article/article.module';
+import { CreateArticleModule } from './createArticle/createArticle.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -44,6 +45,9 @@ import { ArticleModule } from './article/article.module';
     PopularTagsModule,
     YourFeedModule,
     TagFeedModule,
+    // CreateArticleModule -> route 'articles/new'
+    CreateArticleModule,
+    // ArticleModule -> route 'articles/:slug'
     ArticleModule,
   ],
   providers: [
