@@ -7,12 +7,12 @@ export const SettingsFeatureSelector = createFeatureSelector<
   SettingsStateInterface
 >('editArticle');
 
-export const isSubmittingArticleEditSelector = createSelector(
+export const isSubmittingSettingsSelector = createSelector(
   SettingsFeatureSelector,
   (settingsState: SettingsStateInterface) => settingsState.isSubmitting
 );
 
-export const ErrorsArticleEditSelector = createSelector(
+export const ErrorsSettingsSelector = createSelector(
   SettingsFeatureSelector,
   (settingsState: SettingsStateInterface) => settingsState.validationErrors
 );

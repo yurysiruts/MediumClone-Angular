@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
+import { BackendErrorMessagesModule } from '../shared/modules/backendErrorMessages/backendErrorMessages.module';
 import { SettingsComponent } from './components/settings/settings.component';
 import { settingsReducer } from './store/reducers';
 
@@ -17,6 +19,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('settings', settingsReducer),
+    ReactiveFormsModule,
+    BackendErrorMessagesModule,
   ],
   declarations: [SettingsComponent],
 })
