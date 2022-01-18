@@ -23,6 +23,7 @@ import { ArticleModule } from './article/article.module';
 import { CreateArticleModule } from './createArticle/createArticle.module';
 import { EditArticleModule } from './editArticle/editArticle.module';
 import { SettingsModule } from './settings/settings.module';
+import { FavoritesModule } from './shared/modules/favorites/favorites.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -53,6 +54,7 @@ import { SettingsModule } from './settings/settings.module';
     ArticleModule,
     EditArticleModule,
     SettingsModule,
+    FavoritesModule,
   ],
   providers: [
     PersistanceService,

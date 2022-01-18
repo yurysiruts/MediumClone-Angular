@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { ErrorMessageModule } from '../errorMessage/errorMessage.module';
+import { FavoritesModule } from '../favorites/favorites.module';
 import { LoadingModule } from '../loading/loading.module';
 import { PaginationModule } from '../pagination/pagination.module';
 import { TagListModule } from '../tag-list/tag-list.module';
@@ -22,6 +23,7 @@ import { feedReducer } from './store/reducers';
     LoadingModule,
     PaginationModule,
     TagListModule,
+    FavoritesModule,
   ],
   declarations: [feedComponent],
   exports: [feedComponent],

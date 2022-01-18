@@ -18,7 +18,14 @@
         </a>
         <span class="date">{{ article.createdAt | date }}</span>
       </div>
-      <div class="pull-xs-right">===ADD to favourites===</div>
+      <div class="pull-xs-right">
+        <app-favorites
+          [isFavorited]="article.favorited"
+          [articleSlug]="article.slug"
+          [favoritesCount]="article.favoritesCount"
+        >
+        </app-favorites>
+      </div>
     </div>
     <a [routerLink]="['/articles', article.slug]" class="preview-link">
       <h1>{{ article.title }}</h1>
