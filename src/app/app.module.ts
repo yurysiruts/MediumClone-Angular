@@ -24,6 +24,7 @@ import { CreateArticleModule } from './createArticle/createArticle.module';
 import { EditArticleModule } from './editArticle/editArticle.module';
 import { SettingsModule } from './settings/settings.module';
 import { FavoritesModule } from './shared/modules/favorites/favorites.module';
+import { UserProfileModule } from './userProfile/userProfile.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -55,6 +56,7 @@ import { FavoritesModule } from './shared/modules/favorites/favorites.module';
     EditArticleModule,
     SettingsModule,
     FavoritesModule,
+    UserProfileModule,
   ],
   providers: [
     PersistanceService,
