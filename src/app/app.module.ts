@@ -25,6 +25,7 @@ import { EditArticleModule } from './editArticle/editArticle.module';
 import { SettingsModule } from './settings/settings.module';
 import { FavoritesModule } from './shared/modules/favorites/favorites.module';
 import { UserProfileModule } from './userProfile/userProfile.module';
+import { FollowModule } from './shared/modules/follow/follow.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -57,6 +58,7 @@ import { UserProfileModule } from './userProfile/userProfile.module';
     SettingsModule,
     FavoritesModule,
     UserProfileModule,
+    FollowModule,
   ],
   providers: [
     PersistanceService,
